@@ -1,0 +1,52 @@
+When
+    [Case
+        (Deposit
+            (AccountId
+                1
+                (Role "WASTEPRODUCER")
+            )
+            (Role "WASTEPRODUCER")
+            (Token "" "")
+            (UseValue "value1")
+        )
+        (When
+            [Case
+                (Deposit
+                    (AccountId
+                        1
+                        (Role "WASTEPRODUCER")
+                    )
+                    (Role "WASTEPRODUCER")
+                    (Token "WAVA" "wasteXYZ")
+                    (UseValue "value2")
+                )
+                (Pay
+                    (AccountId
+                        1
+                        (Role "WASTEPRODUCER")
+                    )
+                    (Account
+                        (AccountId
+                            2
+                            (Role "WASTERECEIVER")
+                        ))
+                    (Token "" "")
+                    (UseValue "value1")
+                    (Pay
+                        (AccountId
+                            1
+                            (Role "WASTEPRODUCER")
+                        )
+                        (Account
+                            (AccountId
+                                2
+                                (Role "WASTERECEIVER")
+                            ))
+                        (Token "WAVA" "wasteXYZ")
+                        (UseValue "value2")
+                        Close 
+                    )
+                )]
+            100 Close 
+        )]
+    100 Close 
